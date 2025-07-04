@@ -10,7 +10,7 @@ Usando a versão 20.0.5 do Angular e sendo Standalone.
 - Angular
 - TailwindCSS e DaisyUI para estilização
 
---
+---
 
 ## Estrutura do Projeto
 
