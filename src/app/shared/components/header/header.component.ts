@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ThemeControllerComponent } from '../themeController/themeController.component';
 
+/**
+ * Componente responsável pela `Header` da aplicação
+ */
 @Component({
   selector: 'app-header',
   imports: [FormsModule, ThemeControllerComponent],

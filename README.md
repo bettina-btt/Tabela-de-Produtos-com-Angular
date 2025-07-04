@@ -1,59 +1,71 @@
-# TabelaDeProdutos
+# Projeto Angular: Tabela de Produtos
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.5.
+Este projeto Angular exibe uma lista de produtos consumindo uma API pública de teste (https://fakestoreapi.com). Ele inclui funcionalidades de busca, controle de tema (dark/light), e componentes reutilizáveis.
+Usando a versão 20.0.5 do Angular e sendo Standalone.
 
-## Development server
+---
 
-To start a local development server, run:
+## Estrutura do Projeto
 
-```bash
-ng serve
-```
+- `src/app/shared` - Componentes reutilizáveis (ex: HeaderComponent)
+- `src/app/pages` - Páginas principais (ex: ProductPageComponent)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+#### Dentro de cada página possui a seguinte estrutura
 
-## Code scaffolding
+- `pages/page` - Contém a Página principal, que gerencia o layout e os componentes na tela.
+- `pages/components` - Componentes utilizados pela Página (ex: CardComponent)
+- `pages/services` - Serviços externos utilizados pela Página, como chamadas HTTP API (ex: ProductService)
+- `pages/mappers` - Mapeia os dados externos para um formato interno que a aplicação utiliza (ex: ProductMapper)
+- `pages/interface` - Define os contratos de dados usado pela Página e também de serviços Externos (ex: ProductApiResponse)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## Funcionalidades
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Listagem de Produtos
 
-```bash
-ng generate --help
-```
+- Consome a API pública para obter a lista de produtos.
+- Mapeia os dados da API `ProductApiResponse` para a interface que a aplicação utiliza `Product`.
+- Exibe os produtos usando o componente `CardComponent`.
 
-## Building
+### Pesquisa de Produtos
 
-To build the project run:
+- Busca por título do produto com filtro case insensitive e trim para padronizar os dados e não ter espaços desnecessários.
+- Atualiza a lista exibida conforme o usuário digita.
+- Caso o usuário aperte a tecla `Enter` ou aperte o botão para pesquisar e o input está vazio, todos os produtos serão retornados.
 
-```bash
-ng build
-```
+### Controle de Tema
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- Suporta dois temas: `dracula` (dark) e `silk` (light).
+- Salva a preferência do usuário no `localStorage`.
+- Aplica o tema alterando o atributo `data-theme` no `document.documentElement`.
+- Componente dedicado para controlar o tema: `ThemeControllerComponent`.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Principais Componentes
 
-```bash
-ng test
-```
+### `ProductPageComponent`
 
-## Running end-to-end tests
+- Responsável por buscar e exibir a lista de produtos.
+- Gerencia a pesquisa e seleção de produto.
+- Usa `ProductService` para acessar a API.
 
-For end-to-end (e2e) testing, run:
+### `CardComponent`
 
-```bash
-ng e2e
-```
+- Recebe um produto via `@Input`.
+- Emite um evento via `@Output` enviando o produto do card para mostrar detalhes no modal.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### `ThemeControllerComponent`
 
-## Additional Resources
+- Controla a troca entre temas claro e escuro.
+- Persiste a preferência do usuário no `localStorage`.
+- Atualiza o tema da aplicação dinamicamente.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## Serviços
+
+### `ProductService`
+
+- Serviço responsável por buscar os produtos da API.

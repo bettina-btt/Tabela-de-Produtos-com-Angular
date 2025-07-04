@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+/**
+ * Componente responsável pelo `Footer` da aplicaçao
+ */
 @Component({
   selector: 'app-footer',
   imports: [],
@@ -7,5 +10,6 @@ import { Component } from '@angular/core';
   styleUrl: './footer.component.css',
 })
 export class FooterComponent {
+  /** Retorna o ano atual que é mostrado no `Footer` */
   protected currentYear: number = new Date().getFullYear();
 }
