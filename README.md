@@ -5,6 +5,13 @@ Usando a versão 20.0.5 do Angular e sendo Standalone.
 
 ---
 
+## Dependências principais
+
+- Angular
+- TailwindCSS e DaisyUI para estilização
+
+--
+
 ## Estrutura do Projeto
 
 - `src/app/shared` - Componentes reutilizáveis (ex: HeaderComponent)
@@ -69,10 +76,3 @@ Usando a versão 20.0.5 do Angular e sendo Standalone.
 ### `ProductService`
 
 - Serviço responsável por buscar os produtos da API.
-
----
-
-## Dependências principais
-
-- Angular
-- TailwindCSS e DaisyUI para estilização
