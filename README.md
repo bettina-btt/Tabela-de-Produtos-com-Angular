@@ -31,8 +31,8 @@ Usando a versão 20.0.5 do Angular e sendo Standalone.
 ### Pesquisa de Produtos
 
 - Busca por título do produto com filtro case insensitive e trim para padronizar os dados e não ter espaços desnecessários.
-- Atualiza a lista exibida conforme o usuário digita.
-- Caso o usuário aperte a tecla `Enter` ou aperte o botão para pesquisar e o input está vazio, todos os produtos serão retornados.
+- Atualiza a lista exibida caso o usuário apert a tecla `Enter` ou o botão de pesquisa.
+- Caso o usuário faça uima pesquisa e o input está vazio, todos os produtos serão retornados.
 
 ### Controle de Tema
 
@@ -69,3 +69,10 @@ Usando a versão 20.0.5 do Angular e sendo Standalone.
 ### `ProductService`
 
 - Serviço responsável por buscar os produtos da API.
+
+---
+
+## Dependências principais
+
+- Angular
+- TailwindCSS e DaisyUI para estilização
