@@ -1,0 +1,56 @@
+<div class="min-h-full flex flex-1 flex-col mx-4 gap-4">
+  <div class="container flex flex-row items-end gap-4">
+    <div class="flex flex-col">
+      <label for="search" class="text-sm">Pesquisar</label>
+      <input
+        id="search"
+        type="text"
+        [(ngModel)]="searchInput"
+        (keyup.enter)="searchProduct()"
+        placeholder="Ex: camiseta"
+        class="input"
+      />
+    </div>
+    <button class="btn btn-info" (click)="searchProduct()">Pesquisar</button>
+  </div>
+  <ul class="flex flex-wrap gap-4 justify-between mx-4">
+    @for (product of products; track product.id) {
+    <app-custom-card
+      [product]="product"
+      (showDialog)="onShowDialog($event)"
+    ></app-custom-card>
+    }
+  </ul>
+
+  @if (selectedProduct) {
+  <dialog id="modal_view_product" class="modal glass">
+    <div class="modal-box w-3xl min-w-3xl max-w-3xl">
+      <form method="dialog">
+        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+          ✕
+        </button>
+      </form>
+      <div class="flex space-x-8">
+        <div
+          class="h-96 overflow-hidden rounded-md flex items-center justify-cente bg-white"
+        >
+          <img
+            [src]="selectedProduct.image"
+            [alt]="selectedProduct.title"
+            class="w-full h-full object-contain"
+          />
+        </div>
+        <div class="w-2xl flex flex-col gap-4">
+          <p><strong>Nome:</strong> {{ selectedProduct.title }}</p>
+          <p><strong>Descrição:</strong> {{ selectedProduct.description }}</p>
+          <p>
+            <strong>Preço:</strong>
+            {{ selectedProduct.price | currency : "BRL" }}
+          </p>
+          <p><strong>Categoria:</strong> {{ selectedProduct.category }}</p>
+        </div>
+      </div>
+    </div>
+  </dialog>
+  }
+</div>
