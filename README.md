@@ -76,3 +76,4 @@ Usando a versão 20.0.5 do Angular e sendo Standalone.
 ### `ProductService`
 
 - Serviço responsável por buscar os produtos da API.
+"# tabela-de-produtos-Angular" 
