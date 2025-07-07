@@ -77,3 +77,4 @@ Usando a versão 20.0.5 do Angular e sendo Standalone.
 
 - Serviço responsável por buscar os produtos da API.
 "# tabela-de-produtos-Angular" 
+"# tabela-de-produtos-Angular" 
